@@ -1,4 +1,18 @@
-# Getting Started with Create React App
+#
+
+React Superhero
+An Application to
+
+1. Allow a user to search for their favourite superhero.
+
+2. Select the superhero and see his/her image and power stats.
+
+3. Edit the power stats
+
+4. Save the image and stats to be viewed later.
+
+Getting Started with Create React App
+Super Hero API: - https://www.superheroapi.com/index.html
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

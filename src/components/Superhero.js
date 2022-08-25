@@ -1,13 +1,50 @@
+import axios from 'axios';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 /*...*/
 
 
+// INstructions to follow;
+    // 1. first change all p tags to input tags with disable
+    // 2. Two Buttons edit and save. Edit will just enable input type text
+    // 3. const [newname, setnewName] use State apply to all other attributes like weight, size, biography just need useState
+    /// 4. put all input data to axios post . see comments 
 
 function SuperHero(){
 const location = useLocation();
 const data = location.state;
+
+function edit(){
+    //First list the data in input text with disable 
+    //onClick change all input to enabled.
+
+    // GOOGLE 
+}
+
+const [newName, setnewName] = useState();
+//do same for all other attributes
+// if array useState([]);
+function save(){
+    try{
+        axios.post(`https://akabab.github.io/superhero-api/api/${data.id}`,{
+        name: newName,
+        //repeat same for every all other steps,
+
+        /// we are trying to update that list all at once
+        
+        }).then(res=>{
+            console.log(res)
+        })
+    }
+  catch(err){
+console.log(err);
+  }
+
+
+}
+
+
 return(
     <div className="superhero_description">
         <div className ="container">
@@ -15,10 +52,11 @@ return(
                 <img src={data.images.md} alt ={data.name}/>
             </div>
             <div className="results">
-                <h3>{data.name}</h3>
+                <input type="text" value ={data.name} onChange={(e)=>setnewName(e.target.value)}/>
                 <div className="appearance">
                     <h1>Appearance</h1>
                 <p>Eyecolor : {data.appearance.eyeColor}</p>
+            
                 <p>Gender : {data.appearance.gender}</p>
                 <p>HairColor : {data.appearance.hairColor}</p>
                 <p>Height : {data.appearance.height[0]}</p>
@@ -45,7 +83,10 @@ return(
                 <div className="work"></div>
             </div>
         </div>
-        ${JSON.stringify(data)}
+       <input type= "button" value ="Edit" onClick={edit}/>
+
+       
+       <input type ="button" value ="Save" style="display:none" onClick ={save}/>
     </div>
 )
 }

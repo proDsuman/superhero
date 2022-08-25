@@ -1,0 +1,49 @@
+
+.App .wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    place-items: center;
+   
+  }
+  .App .wrapper a{
+      text-decoration: none;
+      text-align: center;
+      color: white;
+
+    }
+  
+  .App h1{
+    margin-top: 0px;
+    padding-top: 40px;
+    text-align: center;
+  }
+  @media screen and (max-width:767px){
+  .App .wrapper{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  }
+  @media screen and (max-width: 766px) and (min-width:500px){
+    .App .wrapper{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  }
+  
+  .App .inputWrapper{
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+  }
+  
+  .App .inputWrapper .search{
+   min-width: 40%;
+    min-height: 30px;
+    margin-right: 10px;
+  
+  }
+  .App .inputWrapper .search_button{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: 	#008080;
+    color: white;
+   }

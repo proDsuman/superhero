@@ -1,55 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import axios from 'axios';
-import Superherocard from './components/Superherocard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import SuperHero from './components/Superhero';
+
+function App(){
+  return(
+    <Router>
+    <div className="home">
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path="/SuperHero/:hero" element={<SuperHero />} />
+
+      </Routes>
 
 
-
-
-function App() {
-  var url = 'https://akabab.github.io/superhero-api/api/';
-  const [Hero, setHero] = useState([]);
-  const [Loading, setLoading] =useState('');
-  const [inputData, setInputData] = useState();
-
-  function HandleChange(event){
-     setInputData(event.target.value);
-  }
-  const fetchHeroes= async() =>{
-    try{
-    await axios.get(`${url}/all.json`).then(res=>{
-      setHero(res.data);
-      setLoading(false);
-      console.log(Hero);
-    })
-    }catch(error){
-        console.log(error);
-    }
-  
-}
-  
-  useEffect(()=>{
-   fetchHeroes()
-  },[])
-  return (
-    <div className="App">
-      <h1>SuperHeroes</h1>
-      <div className="inputWrapper">
-        <input type="text" className='search' placeholder='Search Your Favourite Superhero' onChange={HandleChange} value={inputData}/>
-        <input type ="button" value ='Search' className='search_button' onClick={alert(inputData)}/>
-      </div>
-         {!Loading ? <><div class='wrapper'>
-                {Hero.map(hero =>
-                    <Superherocard key={hero.id}  data={hero} />
-                )}
-            </div>
-            </>
-
-                : (<h1> Superhero is Loading</h1>)}
     </div>
-
-   
-  );
+  </Router>
+  )
 }
+
+
+
 
 export default App;

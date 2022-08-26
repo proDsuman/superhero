@@ -1,0 +1,33 @@
+.superhero_description {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(224, 13, 58, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.superhero_description .container {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.superhero_description .container .results h1 {
+  font-size: 3rem;
+  color: white;
+}
+.superhero_description .container .results .appearance_results {
+  display: grid;
+  place-items: center;
+  gap: 20px;
+}
+.superhero_description .container .results .appearance_results table tr td {
+  padding: 10px;
+  border: ;
+}
+.superhero_description .container .results .appearance_results table,
+td {
+  border: 3px solid black;
+}
